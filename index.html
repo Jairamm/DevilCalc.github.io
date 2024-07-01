@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-image: url("/maths.avif");
+        /* background-color: aqua; */
+        background-repeat: no-repeat;
+        background-size:auto;
+      }
+      .bg-g {
+        background-color: #a5a5a5;
+        color: black;
+      }
+      .bg-Y {
+        background-color: #e1ad01;
+      }
+      table {
+        border: 1px solid black;
+        margin: 0px auto;
+        margin-top: 236px;
+        background-color: black;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-spacing: 0px;
+      }
+      tr {
+        box-shadow: 0px 0px 0px 1px;
+        background-color: black;
+      }
+      button {
+        width: 85%;
+        color: white;
+        padding: 20px;
+        margin: 5px  ;
+        border-radius: 50%;
+        background-color: #333333;
+        font-size: 20px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+      button:hover {
+       
+        background-color: red;
+        font-size: 25px;
+      }
+
+      h1 {
+         margin-top: 10px;
+        text-align: center;
+        color:aqua;   
+       }
+      td input {
+        width: 100%;
+        height: 90px;
+        border-radius: 5px;
+        margin-left: -7px;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        color: white;
+        box-shadow: none;
+        font-size: 32px;
+        text-align: right;
+        font-family: "Roboto", sans-serif;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+      td input::placeholder {
+        color: #888;
+        text-align: center;
+        font-size: 25px;
+      }
+      th, td {
+          padding: 0px;
+          margin: 0px;
+     }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Calculator 2024 !</h1> -->
+    <form>
+      <table collspacing="5" cellpadding="5">
+        <tr>
+          <td colspan="4">
+            <input type="text" id="box" name="" placeholder=" Welcome to Calculator 2024 !"/>
+            <!-- <input type="text" id="box1"/> -->
+          </td>
+        </tr>
+        <tr>
+          <td><button  type="reset" class="bg-g" onclick="clear()">AC</button></td>
+          <td><button  type="button"class="bg-g" onclick="backspace()">X</button></td>
+          <td><button  type="button"class="bg-g"onclick="insert('/')">&divide;</button></td>
+          <td><button  type="button"class="bg-Y" onclick="insert('%')">&percnt;</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="insert('7')">7</button></td>
+          <td><button type="button" onclick="insert('8')">8</button></td>
+          <td><button type="button" onclick="insert('9')">9</button></td>
+          <td><button type="button" onclick="insert('+')"class="bg-Y">&plus;</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="insert('4')">4</button></td>
+          <td><button type="button" onclick="insert('5')">5</button></td>
+          <td><button type="button" onclick="insert('6')">6</button></td>
+          <td><button type="button" onclick="insert('-')" class="bg-Y">&minus;</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="insert('1')">1</button></td>
+          <td><button type="button" onclick="insert('2')">2</button></td>
+          <td><button type="button" onclick="insert('3')">3</button></td>
+          <td><button type="button" onclick="insert('*')"class="bg-Y">&times;</button></td>
+        </tr>
+        <tr>
+          <td><button type="button" onclick="insert('0')">0</button></td>
+          <td><button type="button" onclick="insert('.')">&#8729</button></td>
+          <td><button type="button" onclick="insert('( )')">( )</button></td>
+          <td><button type="button" onclick="Calcu()" class="bg-Y">&equals;</button></td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      var box =document.getElementById("box");
+      function insert(num){
+         box.value+=num;
+      }
+      function clear(){
+         box.value="";
+      }
+      function backspace(){
+        box.value= box.value.slice(0,-1);
+      } 
+      function Calcu(){
+       box.value= eval(box.value);
+      }
+    </script>
+  </body>
+</html>
